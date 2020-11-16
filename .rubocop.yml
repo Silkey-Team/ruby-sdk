@@ -1,0 +1,59 @@
+require: rubocop-performance
+
+AllCops:
+  NewCops: enable
+
+  Exclude:
+    - 'bin/*'
+    - 'doc/*'
+    - 'exe/*'
+    - 'Gemfile'
+    - 'voucher.gemspec'
+    - 'Rakefile'
+    - 'lib/silkey-sdk.rb'
+  TargetRubyVersion: 2.7
+
+Style/Documentation:
+  Enabled: false
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Style/UnpackFirst:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'silkey-sdk.gemspec'
+    - 'spec/factories.rb'
+  ExcludedMethods: ['describe', 'context', 'let']
+
+Layout/LineLength:
+  Max: 100
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/MethodLength:
+  Max: 20
+
+Performance/Casecmp:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%i': ()
+    '%w': ()
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/AccessorGrouping:
+  Enabled: false
+
+Style/ExpandPathArguments:
+  Enabled: false
