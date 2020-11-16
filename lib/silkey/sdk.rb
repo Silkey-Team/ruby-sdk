@@ -19,21 +19,21 @@ module Silkey
       def generate_sso_request_params(private_key, hash)
         redirect_url = hash[:redirectUrl] || ''
         cancel_url = hash[:cancelUrl] || ''
-        sig_timestamp = hash[:sigTimestamp] || Silkey::Utils.current_timestamp
+        sso_timestamp = hash[:ssoTimestamp] || Silkey::Utils.current_timestamp
         ref_id = hash[:refId] || ''
         scope = hash[:scope] || ''
 
         message = message_to_sign({
                                     redirectUrl: redirect_url,
                                     cancelUrl: cancel_url,
-                                    sigTimestamp: sig_timestamp,
+                                    ssoTimestamp: sso_timestamp,
                                     refId: ref_id,
                                     scope: scope
                                   })
 
         {
           signature: Silkey::Utils.sign_message(private_key, message),
-          sigTimestamp: sig_timestamp,
+          ssoTimestamp: sso_timestamp,
           redirectUrl: redirect_url,
           cancelUrl: cancel_url,
           refId: ref_id,
@@ -55,7 +55,8 @@ module Silkey
       end
 
       ##
-      # Fetches public ethereum Silkey address ()directly from blockchain) that can be used for token verification
+      # Fetches public ethereum Silkey address (directly from blockchain).
+      # This address can be used for token verification
       #
       def fetch_silkey_public_key
         public_key = Silkey::RegistryContract.get_address('Hades')

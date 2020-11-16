@@ -51,10 +51,15 @@ After checking out the repo, run `bin/setup` to install dependencies. You can al
 
 ```
 bundle exec rdoc --main DOC.rdoc
-bundle exec rdoc --markup DOC
 bundle exec rdoc --main DOC.rdoc -x "lib/(?!sdk.rb).* lib/sdk.rb LICENSE README.rdoc"
-bundle exec rdoc --main README.rdoc --exclude Gemfile*
+bundle exec rdoc --main README.rdoc -x Gemfile -x Gemfile.lock -x registry_contract_abi.json -x setup -x Rakefile
+
+bundle exec gem build
 bundle exec rake build
+
+# RubyGems saves the credentials in ~/.gem/credentials
+bundle exec gem push silkey-sdk-
+bundle exec gem yank silkey-sdk -v 0.0.0
 
 ```
 
@@ -110,6 +115,8 @@ which ruby
 gem install bundler
 bundle config set path '.bundle'
 bundle install
+
+
 ```
 
 ## License

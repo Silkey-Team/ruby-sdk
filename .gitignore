@@ -2,11 +2,11 @@
 /.yardoc
 /_yardoc/
 /coverage/
-/doc/
 /pkg/
 /spec/reports/
 /tmp/
 .idea/
+pkg/
 
 *.gem
 # rspec failure tracking

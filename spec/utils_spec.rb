@@ -143,20 +143,27 @@ RSpec.describe Silkey::Utils do
   describe 'sign/recover message' do
     message = 'abc'
 
-    it do
+    it 'expect to sign and verify plain message' do
       signature = subject.sign_plain_message(private_key, message)
       expect(subject.verify_plain_message(message, signature)).to eq(public_key)
     end
 
-    it do
+    it 'expect to verify signature that came from silkey' do
       signature_from_nodejs = '0x79dff71e50e62de7c76314f08014229694e50c31dc099a1c86d60f6c7de1f7b'\
                               '663b086b36e3168b676f6bd56f3ac4402748a37328cf04917b61fad9f9f016ff11b'
       expect(subject.verify_message(message, signature_from_nodejs)).to eq(public_key)
     end
 
-    it do
+    it 'sign/verify message in ETH way' do
       signature = subject.sign_message(private_key, message)
       expect(subject.verify_message(message, signature)).to eq(public_key)
+    end
+
+    it 'signs SDL message in ETH way' do
+      custom_sdk_message = 'cancelUrl=::redirectUrl=::refId=::scope=::ssoTimestamp=1602151787'
+      signature = subject.sign_message(private_key, custom_sdk_message)
+      # puts signature
+      expect(subject.verify_message(custom_sdk_message, signature)).to eq(public_key)
     end
   end
 end
