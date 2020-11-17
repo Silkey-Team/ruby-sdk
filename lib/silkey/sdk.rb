@@ -3,6 +3,22 @@
 module Silkey
   class SDK
     class << self
+
+      ##
+      # Generates message to sign based on plain object data (keys => values)
+      #
+      # @param [Hash]
+      #
+      # @return [string]
+      #
+      # @example:
+      #
+      #   Silkey::SDK.message_to_sign({ redirectUrl: 'http://silkey.io', refId: 1 });
+      #
+      # returns
+      #
+      #   'redirectUrl=http://silkey.io::refId=1'
+      #
       def message_to_sign(hash = {})
         msg = []
         hash.keys.sort.each do |k|
@@ -16,6 +32,20 @@ module Silkey
         msg.join('::')
       end
 
+      ##
+      # Generates all needed parameters (including signature) for requesting Silkey SSO
+      #
+      # @param [string] private key of domain owner
+      #
+      # @param [Hash] Hash with data: {redirectUrl*, cancelUrl*, refId, scope, ssoTimestamp*}
+      # marked with * are required by Silkey SSO
+      #
+      # @return [Hash] {{signature, ssoTimestamp, redirectUrl, refId, scope}}
+      #
+      # @example
+      #
+      #   Silkey::SDK.generate_sso_request_params(private_key, data)
+      #
       def generate_sso_request_params(private_key, hash)
         redirect_url = hash[:redirectUrl] || ''
         cancel_url = hash[:cancelUrl] || ''
@@ -41,6 +71,26 @@ module Silkey
         }
       end
 
+      ##
+      # Verifies JWT token payload
+      #
+      # @see https://jwt.io/ for details about token payload data
+      #
+      # @param [string] JWT token returned by Silkey
+      #
+      # @param [string] silkeyPublicKey public ethereum address of Silkey
+      #
+      # @return [JwtPayload|null] null when signature(s) are invalid, otherwise token payload
+      #
+      # @throws when token is invalid or data are corrupted
+      #
+      # @example
+      #
+      #   Silkey::SDK.token_payload_verifier(
+      #     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+      #     Silkey::SDK.fetch_silkey_public_key
+      #   )
+      #
       def token_payload_verifier(token, silkey_public_key = nil)
         payload = token_payload(token)
 
@@ -57,6 +107,14 @@ module Silkey
       ##
       # Fetches public ethereum Silkey address (directly from blockchain).
       # This address can be used for token verification
+      #
+      # @param [string] providerUri ie: 'https://infura.io/v3/:infuraId' register to infura.io to get infuraId
+      #
+      # @param [string] address of silkey smart contract registry
+      #
+      # @return [string] public ethereum address of silkey signer
+      #
+      # @see List of Silkey contracts addresses: https://github.com/Silkey-Team/silkey-sdk#silkey-sdk
       #
       def fetch_silkey_public_key
         public_key = Silkey::RegistryContract.get_address('Hades')
