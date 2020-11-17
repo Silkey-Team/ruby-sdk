@@ -13,7 +13,7 @@ You can also run `bin/console` for an interactive prompt that will allow you to 
 
 ```
 rm -rf doc/
-bundle exec rdoc --main README.rdoc -x Gemfile -x Gemfile.lock -x registry_contract_abi.json -x setup -x Rakefile
+bundle exec rdoc --main README.rdoc -x Gemfile -x Gemfile.lock -x registry_contract_abi.json -x setup -x Rakefile -x DEVELOPMENT.md
 
 bundle exec gem build
 

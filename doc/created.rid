@@ -1,4 +1,4 @@
-Tue, 17 Nov 2020 15:55:04 +0100
+Tue, 17 Nov 2020 16:43:58 +0100
 ./bin/console	Thu, 12 Nov 2020 14:25:33 +0100
 ./CHANGELOG.md	Mon, 16 Nov 2020 13:57:57 +0100
 ./spec/spec_helper.rb	Thu, 12 Nov 2020 16:16:22 +0100
@@ -21,4 +21,3 @@ Tue, 17 Nov 2020 15:55:04 +0100
 ./lib/silkey.rb	Thu, 12 Nov 2020 11:01:43 +0100
 ./lib/silkey-sdk.rb	Mon, 16 Nov 2020 14:29:58 +0100
 ./LICENSE.txt	Mon, 16 Nov 2020 13:57:57 +0100
-./DEVELOPMENT.md	Tue, 17 Nov 2020 15:26:53 +0100
