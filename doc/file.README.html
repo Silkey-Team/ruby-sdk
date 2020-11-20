@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Silkey SDK for Ruby
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'>
+<h1 id="label-Silkey-SDK+for+Ruby">Silkey-SDK for Ruby</h1>
+
+<p>[logo]</p>
+
+<p>[slogan]</p>
+
+<h2 id="label-Integration">Integration</h2>
+
+<h3 id="label-Configuration">Configuration</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Silkey/Configuration.html" title="Silkey::Configuration (class)">Configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_setup'><span class='object_link'><a href="Silkey/Configuration.html#setup-class_method" title="Silkey::Configuration.setup (method)">setup</a></span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_url'>client_url</span> <span class='op'>=</span>  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http://localhost:8545</span><span class='tstring_end'>&#39;</span></span>              <span class='comment'># for local development
+</span>  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_client_url'>client_url</span> <span class='op'>=</span>  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://kovan.infura.io/v3/:id</span><span class='tstring_end'>&#39;</span></span>     <span class='comment'># for real
+</span>  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_registry_contract_address'>registry_contract_address</span> <span class='op'>=</span>  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--silky-registry-contract-address--</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_enable_logs'>enable_logs</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p><a href="https://github.com/Silkey-Team/silkey-sdk#silkey-sdk">List of Silkey contract address.</a></p>
+
+<h3 id="label-Sign+In+with+Silkey">Sign In with Silkey</h3>
+
+<h4 id="label-Making+request">Making request</h4>
+
+<p>| Parameter | Required | Type | Desc | ————- |:———:| —– | —– | signature | yes | string | Domain owner signature | ssoTimestamp | yes | number | Time of signing SSO request | redirectUrl | yes | string | Where to redirect user with token after sign in | cancelUrl | yes | string | Where to redirect user on error | refId | no | string | It will be return with user token, you may use it to identify request | scope | no | string | Scope of data to return in a token payload: <code>id</code> (default) returns only user address, <code>email</code> returns address + email</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:redirectUrl</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://your-website</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:refId</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>12ab</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_sso_params'>sso_params</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Silkey/SDK.html" title="Silkey::SDK (class)">SDK</a></span></span><span class='period'>.</span><span class='id identifier rubyid_generate_sso_request_params'><span class='object_link'><a href="Silkey/SDK.html#generate_sso_request_params-class_method" title="Silkey::SDK.generate_sso_request_params (method)">generate_sso_request_params</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_private_key'>private_key</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+</code></pre>
+
+<h4 id="label-On+request+callback+page">On request callback page</h4>
+
+<p><code>token</code> - get if from request params (it can be send either via POST or GET)</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_silkey_public_key'>silkey_public_key</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Silkey/SDK.html" title="Silkey::SDK (class)">SDK</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fetch_silkey_public_key'><span class='object_link'><a href="Silkey/SDK.html#fetch_silkey_public_key-class_method" title="Silkey::SDK.fetch_silkey_public_key (method)">fetch_silkey_public_key</a></span></span>
+<span class='const'><span class='object_link'><a href="Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Silkey/SDK.html" title="Silkey::SDK (class)">SDK</a></span></span><span class='period'>.</span><span class='id identifier rubyid_token_payload_verifier'><span class='object_link'><a href="Silkey/SDK.html#token_payload_verifier-class_method" title="Silkey::SDK.token_payload_verifier (method)">token_payload_verifier</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_silkey_public_key'>silkey_public_key</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2 id="label-License">License</h2>
+
+<p>The gem is available as open source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+</div></div>
+
+      <div id="footer">
+  Generated on Fri Nov 20 19:13:09 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.25 (ruby-2.7.2).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+--no-private
+--title "Silkey SDK for Ruby"
+--exclude Gemfile
+--exclude Gemfile.lock
+--exclude registry_contract_abi.json
+--exclude setup
+--exclude Rakefile
+--exclude DEVELOPMENT.md
+--exclude lib/silkey/factories/*
+--exclude lib/silkey/registry_contract/*
+--exclude lib/silkey/services/*
+--exclude lib/silkey/contract.rb
+--exclude lib/silkey/utils.rb
+--exclude lib/silkey/version.rb
