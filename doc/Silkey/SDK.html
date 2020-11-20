@@ -1,356 +1,745 @@
 <!DOCTYPE html>
-
 <html>
-<head>
-<meta charset="UTF-8">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Silkey::SDK
+  
+    &mdash; Silkey SDK for Ruby
+  
+</title>
 
-<title>class Silkey::SDK - RDoc Documentation</title>
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  var rdoc_rel_prefix = "../";
-  var index_rel_prefix = "../";
+  pathId = "Silkey::SDK";
+  relpath = '../';
 </script>
 
-<script src="../js/navigation.js" defer></script>
-<script src="../js/search.js" defer></script>
-<script src="../js/search_index.js" defer></script>
-<script src="../js/searcher.js" defer></script>
-<script src="../js/darkfish.js" defer></script>
 
-<link href="../css/fonts.css" rel="stylesheet">
-<link href="../css/rdoc.css" rel="stylesheet">
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
 
 
-
-
-<body id="top" role="document" class="class">
-<nav role="navigation">
-  <div id="project-navigation">
-    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
-  <h2>
-    <a href="../index.html" rel="home">Home</a>
-  </h2>
-
-  <div id="table-of-contents-navigation">
-    <a href="../table_of_contents.html#pages">Pages</a>
-    <a href="../table_of_contents.html#classes">Classes</a>
-    <a href="../table_of_contents.html#methods">Methods</a>
-  </div>
-</div>
-
-    <div id="search-section" role="search" class="project-section initially-hidden">
-  <form action="#" method="get" accept-charset="utf-8">
-    <div id="search-field-wrapper">
-      <input id="search-field" role="combobox" aria-label="Search"
-             aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
-             title="Type to search, Up and Down to navigate, Enter to load">
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
     </div>
 
-    <ul id="search-results" aria-label="Search Results"
-        aria-busy="false" aria-expanded="false"
-        aria-atomic="false" class="initially-hidden"></ul>
-  </form>
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Silkey.html" title="Silkey (module)">Silkey</a></span></span>
+     &raquo; 
+    <span class="title">SDK</span>
+  
 </div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Silkey::SDK
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Silkey::SDK</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/silkey/sdk.rb</dd>
+  </dl>
+  
+</div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch_silkey_public_key-class_method" title="fetch_silkey_public_key (class method)">.<strong>fetch_silkey_public_key</strong>  &#x21d2; string </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fetches public ethereum Silkey address (directly from blockchain).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate_sso_request_params-class_method" title="generate_sso_request_params (class method)">.<strong>generate_sso_request_params</strong>(private_key, params)  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates all needed parameters (including signature) for requesting Silkey SSO.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#message_to_sign-class_method" title="message_to_sign (class method)">.<strong>message_to_sign</strong>(to_sign = {})  &#x21d2; string </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates message to sign based on plain object data (keys =&gt; values).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#token_payload_verifier-class_method" title="token_payload_verifier (class method)">.<strong>token_payload_verifier</strong>(token, silkey_public_key = nil)  &#x21d2; JwtPayload|null </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Verifies JWT token payload.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="fetch_silkey_public_key-class_method">
+  
+    .<strong>fetch_silkey_public_key</strong>  &#x21d2; <tt>string</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fetches public ethereum Silkey address (directly from blockchain). This address can be used for token verification</p>
+
 
   </div>
-
-  
-
-  <div id="class-metadata">
-    
-    <div id="parent-class-section" class="nav-section">
-  <h3>Parent</h3>
-
-  
-  <p class="link"><a href="../Object.html">Object</a>
-  
 </div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>providerUri</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>ie: &#39;<a href="https://infura.io/v3/:infuraId">infura.io/v3/:infuraId</a>&#39; register to infura.io to get infuraId</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>address</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>of silkey smart contract registry</p>
+</div>
+      
+    </li>
+  
+</ul>
 
-    
-    
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>public ethereum address of silkey signer</p>
+</div>
+      
+    </li>
+  
+</ul>
 
-  <ul class="link-list" role="directory">
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
     
-    <li ><a href="#method-c-fetch_silkey_public_key">::fetch_silkey_public_key</a>
-    
-    <li ><a href="#method-c-generate_sso_request_params">::generate_sso_request_params</a>
-    
-    <li ><a href="#method-c-message_to_sign">::message_to_sign</a>
-    
-    <li ><a href="#method-c-token_payload_verifier">::token_payload_verifier</a>
+      <li>of Silkey contracts addresses: https://github.com/Silkey-Team/silkey-sdk#silkey-sdk</li>
     
   </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127
+128
+129
+130
+131</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/sdk.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fetch_silkey_public_key'>fetch_silkey_public_key</span>
+  <span class='id identifier rubyid_public_key'>public_key</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>RegistryContract</span><span class='period'>.</span><span class='id identifier rubyid_get_address'>get_address</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Hades</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid public key: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_public_key'>public_key</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_ethereum_address?'>ethereum_address?</span><span class='lparen'>(</span><span class='id identifier rubyid_public_key'>public_key</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_public_key'>public_key</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
 </div>
-
-  </div>
-</nav>
-
-<main role="main" aria-labelledby="class-Silkey::SDK">
-  <h1 id="class-Silkey::SDK" class="class">
-    class Silkey::SDK
-  </h1>
-
-  <section class="description">
     
-  </section>
+      <div class="method_details ">
+  <h3 class="signature " id="generate_sso_request_params-class_method">
+  
+    .<strong>generate_sso_request_params</strong>(private_key, params)  &#x21d2; <tt>Hash</tt> 
+  
 
   
-  <section id="5Buntitled-5D" class="documentation-section">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
     
+<p>Generates all needed parameters (including signature) for requesting Silkey SSO</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
     
-
+      
+      <pre class="example code"><code>
+<span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:redirectUrl</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://your-website</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:refId</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>12ab</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span>
+<span class='const'><span class='object_link'><a href="../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Silkey::SDK (class)">SDK</a></span></span><span class='period'>.</span><span class='id identifier rubyid_generate_sso_request_params'>generate_sso_request_params</span><span class='lparen'>(</span><span class='id identifier rubyid_private_key'>private_key</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span></code></pre>
     
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>private_key</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>secret private key of domain owner</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Hash object with parameters:</p>
+<ul><li>
+<p>redirectUrl*,</p>
+</li><li>
+<p>cancelUrl*,</p>
+</li><li>
+<p>refId,</p>
+</li><li>
+<p>scope,</p>
+</li><li>
+<p>ssoTimestamp*</p>
+</li></ul>
 
+<p>marked with * are required by Silkey</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>parameters for SSO as key -&gt; value, they all need to be set in URL</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/sdk.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_generate_sso_request_params'>generate_sso_request_params</span><span class='lparen'>(</span><span class='id identifier rubyid_private_key'>private_key</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_redirect_url'>redirect_url</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:redirectUrl</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_cancel_url'>cancel_url</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:cancelUrl</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_sso_timestamp'>sso_timestamp</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:ssoTimestamp</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'><span class='object_link'><a href="../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_current_timestamp'>current_timestamp</span>
+  <span class='id identifier rubyid_ref_id'>ref_id</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:refId</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_scope'>scope</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:scope</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='id identifier rubyid_message_to_sign'>message_to_sign</span><span class='lparen'>(</span><span class='lbrace'>{</span>
+                              <span class='label'>redirectUrl:</span> <span class='id identifier rubyid_redirect_url'>redirect_url</span><span class='comma'>,</span>
+                              <span class='label'>cancelUrl:</span> <span class='id identifier rubyid_cancel_url'>cancel_url</span><span class='comma'>,</span>
+                              <span class='label'>ssoTimestamp:</span> <span class='id identifier rubyid_sso_timestamp'>sso_timestamp</span><span class='comma'>,</span>
+                              <span class='label'>refId:</span> <span class='id identifier rubyid_ref_id'>ref_id</span><span class='comma'>,</span>
+                              <span class='label'>scope:</span> <span class='id identifier rubyid_scope'>scope</span>
+                            <span class='rbrace'>}</span><span class='rparen'>)</span>
+
+  <span class='lbrace'>{</span>
+    <span class='label'>signature:</span> <span class='const'><span class='object_link'><a href="../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_sign_message'>sign_message</span><span class='lparen'>(</span><span class='id identifier rubyid_private_key'>private_key</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>ssoTimestamp:</span> <span class='id identifier rubyid_sso_timestamp'>sso_timestamp</span><span class='comma'>,</span>
+    <span class='label'>redirectUrl:</span> <span class='id identifier rubyid_redirect_url'>redirect_url</span><span class='comma'>,</span>
+    <span class='label'>cancelUrl:</span> <span class='id identifier rubyid_cancel_url'>cancel_url</span><span class='comma'>,</span>
+    <span class='label'>refId:</span> <span class='id identifier rubyid_ref_id'>ref_id</span><span class='comma'>,</span>
+    <span class='label'>scope:</span> <span class='id identifier rubyid_scope'>scope</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="message_to_sign-class_method">
+  
+    .<strong>message_to_sign</strong>(to_sign = {})  &#x21d2; <tt>string</tt> 
+  
 
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-fetch_silkey_public_key" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">fetch_silkey_public_key</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Fetches public ethereum <a href="../Silkey.html"><code>Silkey</code></a> address (directly from blockchain). This address can be used for token verification</p>
-
-<p>@param [string] providerUri ie: &#39;<a href="https://infura.io/v3/:infuraId">infura.io/v3/:infuraId</a>&#39; register to infura.io to get infuraId</p>
-
-<p>@param [string] address of silkey smart contract registry</p>
-
-<p>@return [string] public ethereum address of silkey signer</p>
-
-<p>@see List of <a href="../Silkey.html"><code>Silkey</code></a> contracts addresses: <a href="https://github.com/Silkey-Team/silkey-sdk#silkey-sdk">github.com/Silkey-Team/silkey-sdk#silkey-sdk</a></p>
-          
-          
-
-          
-          <div class="method-source-code" id="fetch_silkey_public_key-source">
-            <pre><span class="ruby-comment"># File lib/silkey/sdk.rb, line 119</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fetch_silkey_public_key</span>
-  <span class="ruby-identifier">public_key</span> = <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">RegistryContract</span>.<span class="ruby-identifier">get_address</span>(<span class="ruby-string">&#39;Hades&#39;</span>)
-
-  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Invalid public key: #{public_key}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">ethereum_address?</span>(<span class="ruby-identifier">public_key</span>)
-
-  <span class="ruby-identifier">public_key</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-generate_sso_request_params" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">generate_sso_request_params</span><span
-            class="method-args">(private_key, hash)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Generates all needed parameters (including signature) for requesting <a href="../Silkey.html"><code>Silkey</code></a> SSO</p>
-
-<p>@param [string] private key of domain owner</p>
-
-<p>@param [Hash] Hash with data: {redirectUrl*, cancelUrl*, refId, scope, ssoTimestamp*} marked with * are required by <a href="../Silkey.html"><code>Silkey</code></a> SSO</p>
-
-<p>@return [Hash] {{signature, ssoTimestamp, redirectUrl, refId, scope}}</p>
-
-<p>@example</p>
-
-<pre class="ruby"><span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">SDK</span>.<span class="ruby-identifier">generate_sso_request_params</span>(<span class="ruby-identifier">private_key</span>, <span class="ruby-identifier">data</span>)
-</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="generate_sso_request_params-source">
-            <pre><span class="ruby-comment"># File lib/silkey/sdk.rb, line 49</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_sso_request_params</span>(<span class="ruby-identifier">private_key</span>, <span class="ruby-identifier">hash</span>)
-  <span class="ruby-identifier">redirect_url</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-value">:redirectUrl</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>
-  <span class="ruby-identifier">cancel_url</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-value">:cancelUrl</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>
-  <span class="ruby-identifier">sso_timestamp</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-value">:ssoTimestamp</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">current_timestamp</span>
-  <span class="ruby-identifier">ref_id</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-value">:refId</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>
-  <span class="ruby-identifier">scope</span> = <span class="ruby-identifier">hash</span>[<span class="ruby-value">:scope</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>
-
-  <span class="ruby-identifier">message</span> = <span class="ruby-identifier">message_to_sign</span>({
-                              <span class="ruby-value">redirectUrl:</span> <span class="ruby-identifier">redirect_url</span>,
-                              <span class="ruby-value">cancelUrl:</span> <span class="ruby-identifier">cancel_url</span>,
-                              <span class="ruby-value">ssoTimestamp:</span> <span class="ruby-identifier">sso_timestamp</span>,
-                              <span class="ruby-value">refId:</span> <span class="ruby-identifier">ref_id</span>,
-                              <span class="ruby-value">scope:</span> <span class="ruby-identifier">scope</span>
-                            })
-
-  {
-    <span class="ruby-value">signature:</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">sign_message</span>(<span class="ruby-identifier">private_key</span>, <span class="ruby-identifier">message</span>),
-    <span class="ruby-value">ssoTimestamp:</span> <span class="ruby-identifier">sso_timestamp</span>,
-    <span class="ruby-value">redirectUrl:</span> <span class="ruby-identifier">redirect_url</span>,
-    <span class="ruby-value">cancelUrl:</span> <span class="ruby-identifier">cancel_url</span>,
-    <span class="ruby-value">refId:</span> <span class="ruby-identifier">ref_id</span>,
-    <span class="ruby-value">scope:</span> <span class="ruby-identifier">scope</span>
-  }
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-message_to_sign" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">message_to_sign</span><span
-            class="method-args">(hash = {})</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Generates message to sign based on plain object data (keys =&gt; values)</p>
-
-<p>@param [Hash]</p>
-
-<p>@return [string]</p>
+<p>Generates message to sign based on plain object data (keys =&gt; values)</p>
 
 <p>@example:</p>
 
-<pre class="ruby"><span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">SDK</span>.<span class="ruby-identifier">message_to_sign</span>({ <span class="ruby-value">redirectUrl:</span> <span class="ruby-string">&#39;http://silkey.io&#39;</span>, <span class="ruby-value">refId:</span> <span class="ruby-value">1</span> });
-</pre>
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Silkey::SDK (class)">SDK</a></span></span><span class='period'>.</span><span class='id identifier rubyid_message_to_sign'>message_to_sign</span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='label'>redirectUrl:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http://silkey.io</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>refId:</span> <span class='int'>1</span> <span class='rbrace'>}</span><span class='rparen'>)</span><span class='semicolon'>;</span>
+</code></pre>
 
 <p>returns</p>
 
-<pre class="ruby"><span class="ruby-string">&#39;redirectUrl=http://silkey.io::refId=1&#39;</span>
-</pre>
-          
-          
+<pre class="code ruby"><code class="ruby"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>redirectUrl=http://silkey.io::refId=1</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
 
-          
-          <div class="method-source-code" id="message_to_sign-source">
-            <pre><span class="ruby-comment"># File lib/silkey/sdk.rb, line 22</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">message_to_sign</span>(<span class="ruby-identifier">hash</span> = {})
-  <span class="ruby-identifier">msg</span> = []
-  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">empty?</span>(<span class="ruby-identifier">hash</span>[<span class="ruby-identifier">k</span>])
-      <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">push</span>(<span class="ruby-node">&quot;#{k}=&quot;</span>)
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">push</span>(<span class="ruby-node">&quot;#{k}=#{hash[k]}&quot;</span>)
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
 
-  <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;::&#39;</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-token_payload_verifier" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">token_payload_verifier</span><span
-            class="method-args">(token, silkey_public_key = nil)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Verifies JWT token payload</p>
-
-<p>@see <a href="https://jwt.io">jwt.io</a>/ for details about token payload data</p>
-
-<p>@param [string] JWT token returned by <a href="../Silkey.html"><code>Silkey</code></a></p>
-
-<p>@param [string] silkeyPublicKey public ethereum address of <a href="../Silkey.html"><code>Silkey</code></a></p>
-
-<p>@return [JwtPayload|null] null when signature(s) are invalid, otherwise token payload</p>
-
-<p>@throws when token is invalid or data are corrupted</p>
-
-<p>@example</p>
-
-<pre class="ruby"><span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">SDK</span>.<span class="ruby-identifier">token_payload_verifier</span>(
-  <span class="ruby-string">&#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&#39;</span>,
-  <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">SDK</span>.<span class="ruby-identifier">fetch_silkey_public_key</span>
-)
-</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="token_payload_verifier-source">
-            <pre><span class="ruby-comment"># File lib/silkey/sdk.rb, line 94</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">token_payload_verifier</span>(<span class="ruby-identifier">token</span>, <span class="ruby-identifier">silkey_public_key</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">token_payload</span>(<span class="ruby-identifier">token</span>)
-
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">silkey_signature_valid?</span>(<span class="ruby-identifier">payload</span>, <span class="ruby-identifier">silkey_public_key</span>) <span class="ruby-operator">!=</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">&amp;&amp;</span>
-     <span class="ruby-identifier">user_signature_valid?</span>(<span class="ruby-identifier">payload</span>) <span class="ruby-operator">!=</span> <span class="ruby-keyword">false</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Models</span><span class="ruby-operator">::</span><span class="ruby-constant">JwtPayload</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">import</span>(<span class="ruby-identifier">payload</span>)
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">nil</span>
-<span class="ruby-keyword">rescue</span>
-  <span class="ruby-keyword">nil</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
-  </section>
+    <li>
+      
+        <span class='name'>to_sign</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash object</p>
+</div>
+      
+    </li>
+  
+</ul>
 
-</main>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>message to sign</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
 
-<footer id="validator-badges" role="contentinfo">
-  <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
-  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
-</footer>
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/sdk.rb', line 22</span>
 
+<span class='kw'>def</span> <span class='id identifier rubyid_message_to_sign'>message_to_sign</span><span class='lparen'>(</span><span class='id identifier rubyid_to_sign'>to_sign</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_msg'>msg</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_to_sign'>to_sign</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='lparen'>(</span><span class='id identifier rubyid_to_sign'>to_sign</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_msg'>msg</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_k'>k</span><span class='embexpr_end'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_msg'>msg</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_k'>k</span><span class='embexpr_end'>}</span><span class='tstring_content'>=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_to_sign'>to_sign</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_msg'>msg</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>::</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="token_payload_verifier-class_method">
+  
+    .<strong>token_payload_verifier</strong>(token, silkey_public_key = nil)  &#x21d2; <tt>JwtPayload|null</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Verifies JWT token payload</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'><span class='object_link'><a href="../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Silkey::SDK (class)">SDK</a></span></span><span class='period'>.</span><span class='id identifier rubyid_token_payload_verifier'>token_payload_verifier</span><span class='lparen'>(</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='const'><span class='object_link'><a href="../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Silkey::SDK (class)">SDK</a></span></span><span class='period'>.</span><span class='id identifier rubyid_fetch_silkey_public_key'><span class='object_link'><a href="#fetch_silkey_public_key-class_method" title="Silkey::SDK.fetch_silkey_public_key (method)">fetch_silkey_public_key</a></span></span>
+<span class='rparen'>)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>JWT</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>token returned by Silkey</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>silkeyPublicKey</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>public ethereum address of Silkey</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>JwtPayload|null</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>null when signature(s) are invalid, otherwise token payload</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://jwt.io/" target="_parent" title="for details about token payload data">for details about token payload data</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/sdk.rb', line 100</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_token_payload_verifier'>token_payload_verifier</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_silkey_public_key'>silkey_public_key</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_token_payload'>token_payload</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_silkey_signature_valid?'>silkey_signature_valid?</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_silkey_public_key'>silkey_public_key</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='kw'>false</span> <span class='op'>&amp;&amp;</span>
+     <span class='id identifier rubyid_user_signature_valid?'>user_signature_valid?</span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='kw'>false</span>
+    <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Models.html" title="Silkey::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Models/JwtPayload.html" title="Silkey::Models::JwtPayload (class)">JwtPayload</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_import'><span class='object_link'><a href="Models/JwtPayload.html#import-instance_method" title="Silkey::Models::JwtPayload#import (method)">import</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_payload'>payload</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>nil</span>
+<span class='kw'>rescue</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Fri Nov 20 18:50:38 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.25 (ruby-2.7.2).
+</div>
+
+    </div>
+  </body>
+</html>

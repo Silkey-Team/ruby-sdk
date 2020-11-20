@@ -38,6 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'virtus', '~> 1.0'
   spec.add_dependency 'virtus_convert', '~> 0.1'
   spec.add_development_dependency 'rdoc', '~> 6.2', '>= 6.2.1'
+  spec.add_development_dependency 'yard', '~> 0.9.25'
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'factory_bot', '~> 6.1'
   spec.add_development_dependency 'pry', '~> 0.13'

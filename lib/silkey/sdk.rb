@@ -7,9 +7,9 @@ module Silkey
       ##
       # Generates message to sign based on plain object data (keys => values)
       #
-      # @param [Hash]
+      # @param to_sign [Hash] hash object
       #
-      # @return [string]
+      # @return [string] message to sign
       #
       # @example:
       #
@@ -19,13 +19,13 @@ module Silkey
       #
       #   'redirectUrl=http://silkey.io::refId=1'
       #
-      def message_to_sign(hash = {})
+      def message_to_sign(to_sign = {})
         msg = []
-        hash.keys.sort.each do |k|
-          if Silkey::Utils.empty?(hash[k])
+        to_sign.keys.sort.each do |k|
+          if Silkey::Utils.empty?(to_sign[k])
             msg.push("#{k}=")
           else
-            msg.push("#{k}=#{hash[k]}")
+            msg.push("#{k}=#{to_sign[k]}")
           end
         end
 
@@ -35,23 +35,29 @@ module Silkey
       ##
       # Generates all needed parameters (including signature) for requesting Silkey SSO
       #
-      # @param [string] private key of domain owner
+      # @param private_key [string] secret private key of domain owner
       #
-      # @param [Hash] Hash with data: {redirectUrl*, cancelUrl*, refId, scope, ssoTimestamp*}
-      # marked with * are required by Silkey SSO
+      # @param params [Hash] Hash object with parameters:
+      #   - redirectUrl*,
+      #   - cancelUrl*,
+      #   - refId,
+      #   - scope,
+      #   - ssoTimestamp*
+      #   marked with * are required by Silkey
       #
-      # @return [Hash] {{signature, ssoTimestamp, redirectUrl, refId, scope}}
+      # @return [Hash] parameters for SSO as key -> value, they all need to be set in URL
       #
       # @example
       #
+      #   data = { :redirectUrl => 'https://your-website', :refId => '12ab' }
       #   Silkey::SDK.generate_sso_request_params(private_key, data)
       #
-      def generate_sso_request_params(private_key, hash)
-        redirect_url = hash[:redirectUrl] || ''
-        cancel_url = hash[:cancelUrl] || ''
-        sso_timestamp = hash[:ssoTimestamp] || Silkey::Utils.current_timestamp
-        ref_id = hash[:refId] || ''
-        scope = hash[:scope] || ''
+      def generate_sso_request_params(private_key, params)
+        redirect_url = params[:redirectUrl] || ''
+        cancel_url = params[:cancelUrl] || ''
+        sso_timestamp = params[:ssoTimestamp] || Silkey::Utils.current_timestamp
+        ref_id = params[:refId] || ''
+        scope = params[:scope] || ''
 
         message = message_to_sign({
                                     redirectUrl: redirect_url,

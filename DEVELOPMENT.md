@@ -14,11 +14,12 @@ You can also run `bin/console` for an interactive prompt that will allow you to 
 ```
 rm -rf doc/
 bundle exec rdoc --main README.rdoc -x Gemfile -x Gemfile.lock -x registry_contract_abi.json -x setup -x Rakefile -x DEVELOPMENT.md
+bundle exec yardoc 
 
 bundle exec gem build
 
 # RubyGems saves the credentials in ~/.gem/credentials
-bundle exec gem push silkey-sdk-
+bundle exec gem push silkey-sdk-...gem
 
 # remove gem
 bundle exec gem yank silkey-sdk -v 0.0.0

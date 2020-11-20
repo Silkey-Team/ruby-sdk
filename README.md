@@ -4,7 +4,6 @@
 
 [slogan]
 
-
 ## Integration
 
 ### Configuration
@@ -13,7 +12,7 @@
 Silkey::Configuration.setup do |config|
   config.client_url =  'http://localhost:8545'              # for local development
   config.client_url =  'https://kovan.infura.io/v3/:id'     # for real
-  config.registry_contract_address =  '--silky-registry-contrract-address--'
+  config.registry_contract_address =  '--silky-registry-contract-address--'
   config.enable_logs = false
 end
 ```
@@ -24,12 +23,18 @@ end
 
 #### Making request
 
-[List of request parameters.](https://github.com/Silkey-Team/silkey-sdk#silkey-sdk) 
-
+| Parameter     | Required  | Type   | Desc 
+| ------------- |:---------:| -----  | ----- 
+| signature     | yes       | string | Domain owner signature
+| ssoTimestamp  | yes       | number | Time of signing SSO request
+| redirectUrl   | yes       | string | Where to redirect user with token after sign in
+| cancelUrl     | yes       | string | Where to redirect user on error
+| refId         | no        | string | It will be return with user token, you may use it to identify request
+| scope         | no        | string | Scope of data to return in a token payload: `id` (default) returns only user address, `email` returns address + email
 
 ```rb
-- Silkey::SDK.message_to_sign({params})
-- Silkey::SDK.generate_sso_request_params(private_key, hash)
+params = { :redirectUrl => 'https://your-website', :refId => '12ab' }
+sso_params = Silkey::SDK.generate_sso_request_params(private_key, params)
 ```
 
 #### On request callback page

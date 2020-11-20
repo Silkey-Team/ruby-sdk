@@ -1,622 +1,949 @@
 <!DOCTYPE html>
-
 <html>
-<head>
-<meta charset="UTF-8">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Silkey::Models::JwtPayload
+  
+    &mdash; Silkey SDK for Ruby
+  
+</title>
 
-<title>class Silkey::Models::JwtPayload - RDoc Documentation</title>
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  var rdoc_rel_prefix = "../../";
-  var index_rel_prefix = "../../";
+  pathId = "Silkey::Models::JwtPayload";
+  relpath = '../../';
 </script>
 
-<script src="../../js/navigation.js" defer></script>
-<script src="../../js/search.js" defer></script>
-<script src="../../js/search_index.js" defer></script>
-<script src="../../js/searcher.js" defer></script>
-<script src="../../js/darkfish.js" defer></script>
 
-<link href="../../css/fonts.css" rel="stylesheet">
-<link href="../../css/rdoc.css" rel="stylesheet">
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
 
 
-
-
-<body id="top" role="document" class="class">
-<nav role="navigation">
-  <div id="project-navigation">
-    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
-  <h2>
-    <a href="../../index.html" rel="home">Home</a>
-  </h2>
-
-  <div id="table-of-contents-navigation">
-    <a href="../../table_of_contents.html#pages">Pages</a>
-    <a href="../../table_of_contents.html#classes">Classes</a>
-    <a href="../../table_of_contents.html#methods">Methods</a>
-  </div>
-</div>
-
-    <div id="search-section" role="search" class="project-section initially-hidden">
-  <form action="#" method="get" accept-charset="utf-8">
-    <div id="search-field-wrapper">
-      <input id="search-field" role="combobox" aria-label="Search"
-             aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
-             title="Type to search, Up and Down to navigate, Enter to load">
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
     </div>
 
-    <ul id="search-results" aria-label="Search Results"
-        aria-busy="false" aria-expanded="false"
-        aria-atomic="false" class="initially-hidden"></ul>
-  </form>
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (J)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Models.html" title="Silkey::Models (module)">Models</a></span></span>
+     &raquo; 
+    <span class="title">JwtPayload</span>
+  
 </div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Silkey::Models::JwtPayload
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Silkey::Models::JwtPayload</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/silkey/models/jwt_payload.rb</dd>
+  </dl>
+  
+</div>
+
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="SCOPE_DIVIDER-constant" class="">SCOPE_DIVIDER =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#import-instance_method" title="#import (instance method)">#<strong>import</strong>(hash)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#message_to_sign_by_silkey-instance_method" title="#message_to_sign_by_silkey (instance method)">#<strong>message_to_sign_by_silkey</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#message_to_sign_by_user-instance_method" title="#message_to_sign_by_user (instance method)">#<strong>message_to_sign_by_user</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates message that&#39;s need to be sign by user.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#scope-instance_method" title="#scope (instance method)">#<strong>scope</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>rubocop:enable Style/HashSyntax.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#scope_divider-instance_method" title="#scope_divider (instance method)">#<strong>scope_divider</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_address-instance_method" title="#set_address (instance method)">#<strong>set_address</strong>(addr)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_email-instance_method" title="#set_email (instance method)">#<strong>set_email</strong>(email)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_ref_id-instance_method" title="#set_ref_id (instance method)">#<strong>set_ref_id</strong>(ref_id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_scope-instance_method" title="#set_scope (instance method)">#<strong>set_scope</strong>(scope)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>rubocop:disable Naming/AccessorMethodName.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_silkey_signature-instance_method" title="#set_silkey_signature (instance method)">#<strong>set_silkey_signature</strong>(sig, timestamp)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_user_signature-instance_method" title="#set_user_signature (instance method)">#<strong>set_user_signature</strong>(sig, timestamp)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#validate-instance_method" title="#validate (instance method)">#<strong>validate</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="import-instance_method">
+  
+    #<strong>import</strong>(hash)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 126</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_import'>import</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
+    <span class='id identifier rubyid_var'>var</span> <span class='op'>=</span> <span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_underscore'>underscore</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_k'>k</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>scope</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_set_scope'>set_scope</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_var'>var</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="message_to_sign_by_silkey-instance_method">
+  
+    #<strong>message_to_sign_by_silkey</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_message_to_sign_by_silkey'>message_to_sign_by_silkey</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='lparen'>(</span><span class='id identifier rubyid_email'>email</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='lparen'>(</span><span class='id identifier rubyid_silkey_signature_timestamp'>silkey_signature_timestamp</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_silkey_signature_timestamp'>silkey_signature_timestamp</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_current_timestamp'>current_timestamp</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_str_hex'>str_hex</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>email</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_email'>email</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>silkeySignatureTimestamp</span><span class='tstring_end'>&#39;</span></span>
+  <span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_str'>str</span><span class='op'>|</span> <span class='id identifier rubyid_str'>str</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>H*</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_str_hex'>str_hex</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_int_to_hex'>int_to_hex</span><span class='lparen'>(</span><span class='id identifier rubyid_silkey_signature_timestamp'>silkey_signature_timestamp</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="message_to_sign_by_user-instance_method">
+  
+    #<strong>message_to_sign_by_user</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates message that&#39;s need to be sign by user</p>
+
 
   </div>
-
-  
-
-  <div id="class-metadata">
-    
-    <div id="parent-class-section" class="nav-section">
-  <h3>Parent</h3>
-
-  
-  <p class="link"><a href="../../Object.html">Object</a>
-  
 </div>
+<div class="tags">
+  
 
-    
-    
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-  <ul class="link-list" role="directory">
-    
-    <li ><a href="#method-i-import">#import</a>
-    
-    <li ><a href="#method-i-message_to_sign_by_silkey">#message_to_sign_by_silkey</a>
-    
-    <li ><a href="#method-i-message_to_sign_by_user">#message_to_sign_by_user</a>
-    
-    <li ><a href="#method-i-scope">#scope</a>
-    
-    <li ><a href="#method-i-scope_divider">#scope_divider</a>
-    
-    <li ><a href="#method-i-set_address">#set_address</a>
-    
-    <li ><a href="#method-i-set_email">#set_email</a>
-    
-    <li ><a href="#method-i-set_ref_id">#set_ref_id</a>
-    
-    <li ><a href="#method-i-set_scope">#set_scope</a>
-    
-    <li ><a href="#method-i-set_silkey_signature">#set_silkey_signature</a>
-    
-    <li ><a href="#method-i-set_user_signature">#set_user_signature</a>
-    
-    <li ><a href="#method-i-validate">#validate</a>
-    
-  </ul>
+
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_message_to_sign_by_user'>message_to_sign_by_user</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='lparen'>(</span><span class='id identifier rubyid_user_signature_timestamp'>user_signature_timestamp</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_signature_timestamp'>user_signature_timestamp</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_current_timestamp'>current_timestamp</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_str1_hex'>str1_hex</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>address</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>H*</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_adr_hex'>adr_hex</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_remove0x'>remove0x</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+
+  <span class='id identifier rubyid_str2_hex'>str2_hex</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>refId</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_ref_id'>ref_id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>scope</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>userSignatureTimestamp</span><span class='tstring_end'>&#39;</span></span>
+  <span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_str'>str</span><span class='op'>|</span> <span class='id identifier rubyid_str'>str</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>H*</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_str_hex'>str_hex</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_str1_hex'>str1_hex</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_adr_hex'>adr_hex</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_str2_hex'>str2_hex</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_str_hex'>str_hex</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='lparen'>(</span><span class='id identifier rubyid_user_signature_timestamp'>user_signature_timestamp</span><span class='rparen'>)</span>
+
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_str_hex'>str_hex</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_int_to_hex'>int_to_hex</span><span class='lparen'>(</span><span class='id identifier rubyid_user_signature_timestamp'>user_signature_timestamp</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
 </div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="scope-instance_method">
+  
+    #<strong>scope</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>rubocop:enable Style/HashSyntax</p>
+
 
   </div>
-</nav>
+</div>
+<div class="tags">
+  
 
-<main role="main" aria-labelledby="class-Silkey::Models::JwtPayload">
-  <h1 id="class-Silkey::Models::JwtPayload" class="class">
-    class Silkey::Models::JwtPayload
-  </h1>
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-  <section class="description">
+
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_scope'>scope</span>
+  <span class='id identifier rubyid__scope'>_scope</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#SCOPE_DIVIDER-constant" title="Silkey::Models::JwtPayload::SCOPE_DIVIDER (constant)">SCOPE_DIVIDER</a></span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-  </section>
+      <div class="method_details ">
+  <h3 class="signature " id="scope_divider-instance_method">
+  
+    #<strong>scope_divider</strong>  &#x21d2; <tt>Object</tt> 
+  
 
   
-  <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
-
-    
-    <section class="constants-list">
-      <header>
-        <h3>Constants</h3>
-      </header>
-      <dl>
-      
-        <dt id="SCOPE_DIVIDER">SCOPE_DIVIDER
-        
-        <dd>
-        
-      
-      </dl>
-    </section>
-    
-
-    
-
-    
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
-
-    
-      <div id="method-i-import" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">import</span><span
-            class="method-args">(hash)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="import-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 126</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">import</span>(<span class="ruby-identifier">hash</span>)
-  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">var</span> = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">underscore</span>
-
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;scope&#39;</span>
-      <span class="ruby-identifier">set_scope</span>(<span class="ruby-identifier">v</span>)
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-node">&quot;@#{var}&quot;</span>, <span class="ruby-identifier">v</span>)
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-message_to_sign_by_silkey" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">message_to_sign_by_silkey</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="message_to_sign_by_silkey-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 97</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">message_to_sign_by_silkey</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">empty?</span>(<span class="ruby-identifier">email</span>)
-
-  <span class="ruby-keyword">if</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">empty?</span>(<span class="ruby-identifier">silkey_signature_timestamp</span>)
-    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">silkey_signature_timestamp</span> = <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">current_timestamp</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-identifier">str_hex</span> = [
-    <span class="ruby-string">&#39;email&#39;</span>, <span class="ruby-identifier">email</span>,
-    <span class="ruby-string">&#39;silkeySignatureTimestamp&#39;</span>
-  ].<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">str</span><span class="ruby-operator">|</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;H*&#39;</span>) }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;&#39;</span>)
-
-  <span class="ruby-node">&quot;#{str_hex}#{Silkey::Utils.int_to_hex(silkey_signature_timestamp.to_s)}&quot;</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-message_to_sign_by_user" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">message_to_sign_by_user</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Creates message that&#39;s need to be sign by user</p>
-          
-          
-
-          
-          <div class="method-source-code" id="message_to_sign_by_user-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 76</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">message_to_sign_by_user</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">empty?</span>(<span class="ruby-identifier">address</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">empty?</span>(<span class="ruby-identifier">user_signature_timestamp</span>)
-    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_signature_timestamp</span> = <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">current_timestamp</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-identifier">str1_hex</span> = <span class="ruby-string">&#39;address&#39;</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;H*&#39;</span>)[<span class="ruby-value">0</span>]
-  <span class="ruby-identifier">adr_hex</span> = <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">remove0x</span>(<span class="ruby-identifier">address</span>).<span class="ruby-identifier">downcase</span>
-
-  <span class="ruby-identifier">str2_hex</span> = [
-    <span class="ruby-string">&#39;refId&#39;</span>, <span class="ruby-identifier">ref_id</span>.<span class="ruby-identifier">to_s</span>,
-    <span class="ruby-string">&#39;scope&#39;</span>, <span class="ruby-identifier">scope</span>,
-    <span class="ruby-string">&#39;userSignatureTimestamp&#39;</span>
-  ].<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">str</span><span class="ruby-operator">|</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;H*&#39;</span>) }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;&#39;</span>)
-
-  <span class="ruby-identifier">str_hex</span> = <span class="ruby-node">&quot;#{str1_hex}#{adr_hex}#{str2_hex}&quot;</span>
-
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str_hex</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">empty?</span>(<span class="ruby-identifier">user_signature_timestamp</span>)
-
-  <span class="ruby-node">&quot;#{str_hex}#{Silkey::Utils.int_to_hex(user_signature_timestamp.to_s)}&quot;</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-scope" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">scope</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>rubocop:enable Style/HashSyntax</p>
-          
-          
-
-          
-          <div class="method-source-code" id="scope-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">scope</span>
-  <span class="ruby-identifier">_scope</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">SCOPE_DIVIDER</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-scope_divider" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">scope_divider</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="scope_divider-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 25</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">scope_divider</span>
-  <span class="ruby-constant">SCOPE_DIVIDER</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-set_address" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">set_address</span><span
-            class="method-args">(addr)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="set_address-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 37</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_address</span>(<span class="ruby-identifier">addr</span>)
-  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;`#{addr}` is not ethereum address&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">ethereum_address?</span>(<span class="ruby-identifier">addr</span>)
-
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">address</span> = <span class="ruby-identifier">addr</span>
-  <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-set_email" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">set_email</span><span
-            class="method-args">(email)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="set_email-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 44</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_email</span>(<span class="ruby-identifier">email</span>)
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">email</span> = <span class="ruby-identifier">email</span>
-  <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-set_ref_id" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">set_ref_id</span><span
-            class="method-args">(ref_id)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="set_ref_id-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 49</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_ref_id</span>(<span class="ruby-identifier">ref_id</span>)
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ref_id</span> = <span class="ruby-identifier">ref_id</span>
-  <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-set_scope" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">set_scope</span><span
-            class="method-args">(scope)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>rubocop:disable Naming/AccessorMethodName</p>
-          
-          
-
-          
-          <div class="method-source-code" id="set_scope-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 30</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_scope</span>(<span class="ruby-identifier">scope</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">empty?</span>(<span class="ruby-identifier">scope</span>)
-
-  <span class="ruby-identifier">_scope</span>[<span class="ruby-identifier">scope</span>] = <span class="ruby-keyword">true</span>
-  <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-set_silkey_signature" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">set_silkey_signature</span><span
-            class="method-args">(sig, timestamp)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="set_silkey_signature-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 63</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_silkey_signature</span>(<span class="ruby-identifier">sig</span>, <span class="ruby-identifier">timestamp</span>)
-  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;silkey signature invalid: `#{sig}`&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">signature?</span>(<span class="ruby-identifier">sig</span>)
-  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;empty silkey signature timestamp&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">empty?</span>(<span class="ruby-identifier">timestamp</span>)
-
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">silkey_signature</span> = <span class="ruby-identifier">sig</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">silkey_signature_timestamp</span> = <span class="ruby-identifier">timestamp</span>
-  <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-set_user_signature" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">set_user_signature</span><span
-            class="method-args">(sig, timestamp)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="set_user_signature-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 54</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_user_signature</span>(<span class="ruby-identifier">sig</span>, <span class="ruby-identifier">timestamp</span>)
-  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;user signature invalid: `#{sig}`&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">signature?</span>(<span class="ruby-identifier">sig</span>)
-  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;empty user signature timestamp&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">empty?</span>(<span class="ruby-identifier">timestamp</span>)
-
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_signature</span> = <span class="ruby-identifier">sig</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_signature_timestamp</span> = <span class="ruby-identifier">timestamp</span>
-  <span class="ruby-keyword">self</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-validate" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">validate</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="validate-source">
-            <pre><span class="ruby-comment"># File lib/silkey/models/jwt_payload.rb, line 112</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validate</span>
-  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;address is invalid: #{address}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">ethereum_address?</span>(<span class="ruby-identifier">address</span>)
-
-  <span class="ruby-keyword">unless</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">signature?</span>(<span class="ruby-identifier">user_signature</span>)
-    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;user_signature is invalid: #{user_signature}&quot;</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;user_signature_timestamp is empty&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">empty?</span>(<span class="ruby-identifier">user_signature_timestamp</span>)
-
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Silkey</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">empty?</span>(<span class="ruby-identifier">scope</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">scope</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;id&#39;</span>
-
-  <span class="ruby-identifier">validate_scope_email</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
   
-  </section>
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-</main>
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_scope_divider'>scope_divider</span>
+  <span class='const'><span class='object_link'><a href="#SCOPE_DIVIDER-constant" title="Silkey::Models::JwtPayload::SCOPE_DIVIDER (constant)">SCOPE_DIVIDER</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_address-instance_method">
+  
+    #<strong>set_address</strong>(addr)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
 
-<footer id="validator-badges" role="contentinfo">
-  <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
-  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
-</footer>
+37
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 37</span>
 
+<span class='kw'>def</span> <span class='id identifier rubyid_set_address'>set_address</span><span class='lparen'>(</span><span class='id identifier rubyid_addr'>addr</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>`</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_addr'>addr</span><span class='embexpr_end'>}</span><span class='tstring_content'>` is not ethereum address</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_ethereum_address?'>ethereum_address?</span><span class='lparen'>(</span><span class='id identifier rubyid_addr'>addr</span><span class='rparen'>)</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span> <span class='op'>=</span> <span class='id identifier rubyid_addr'>addr</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_email-instance_method">
+  
+    #<strong>set_email</strong>(email)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_email'>set_email</span><span class='lparen'>(</span><span class='id identifier rubyid_email'>email</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span> <span class='op'>=</span> <span class='id identifier rubyid_email'>email</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_ref_id-instance_method">
+  
+    #<strong>set_ref_id</strong>(ref_id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_ref_id'>set_ref_id</span><span class='lparen'>(</span><span class='id identifier rubyid_ref_id'>ref_id</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ref_id'>ref_id</span> <span class='op'>=</span> <span class='id identifier rubyid_ref_id'>ref_id</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_scope-instance_method">
+  
+    #<strong>set_scope</strong>(scope)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>rubocop:disable Naming/AccessorMethodName</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_scope'>set_scope</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>self</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid__scope'>_scope</span><span class='lbracket'>[</span><span class='id identifier rubyid_scope'>scope</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_silkey_signature-instance_method">
+  
+    #<strong>set_silkey_signature</strong>(sig, timestamp)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_silkey_signature'>set_silkey_signature</span><span class='lparen'>(</span><span class='id identifier rubyid_sig'>sig</span><span class='comma'>,</span> <span class='id identifier rubyid_timestamp'>timestamp</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>silkey signature invalid: `</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sig'>sig</span><span class='embexpr_end'>}</span><span class='tstring_content'>`</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_signature?'>signature?</span><span class='lparen'>(</span><span class='id identifier rubyid_sig'>sig</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>empty silkey signature timestamp</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='lparen'>(</span><span class='id identifier rubyid_timestamp'>timestamp</span><span class='rparen'>)</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_silkey_signature'>silkey_signature</span> <span class='op'>=</span> <span class='id identifier rubyid_sig'>sig</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_silkey_signature_timestamp'>silkey_signature_timestamp</span> <span class='op'>=</span> <span class='id identifier rubyid_timestamp'>timestamp</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_user_signature-instance_method">
+  
+    #<strong>set_user_signature</strong>(sig, timestamp)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56
+57
+58
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_user_signature'>set_user_signature</span><span class='lparen'>(</span><span class='id identifier rubyid_sig'>sig</span><span class='comma'>,</span> <span class='id identifier rubyid_timestamp'>timestamp</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user signature invalid: `</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sig'>sig</span><span class='embexpr_end'>}</span><span class='tstring_content'>`</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_signature?'>signature?</span><span class='lparen'>(</span><span class='id identifier rubyid_sig'>sig</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>empty user signature timestamp</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='lparen'>(</span><span class='id identifier rubyid_timestamp'>timestamp</span><span class='rparen'>)</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_signature'>user_signature</span> <span class='op'>=</span> <span class='id identifier rubyid_sig'>sig</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_signature_timestamp'>user_signature_timestamp</span> <span class='op'>=</span> <span class='id identifier rubyid_timestamp'>timestamp</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="validate-instance_method">
+  
+    #<strong>validate</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/silkey/models/jwt_payload.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_validate'>validate</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>address is invalid: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_address'>address</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_ethereum_address?'>ethereum_address?</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
+
+  <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_signature?'>signature?</span><span class='lparen'>(</span><span class='id identifier rubyid_user_signature'>user_signature</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user_signature is invalid: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_user_signature'>user_signature</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>user_signature_timestamp is empty</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='lparen'>(</span><span class='id identifier rubyid_user_signature_timestamp'>user_signature_timestamp</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='kw'>self</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../Silkey.html" title="Silkey (module)">Silkey</a></span></span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_scope'>scope</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>id</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='id identifier rubyid_validate_scope_email'>validate_scope_email</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Fri Nov 20 18:50:38 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.25 (ruby-2.7.2).
+</div>
+
+    </div>
+  </body>
+</html>
