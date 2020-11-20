@@ -3,7 +3,6 @@
 module Silkey
   class SDK
     class << self
-
       ##
       # Generates message to sign based on plain object data (keys => values)
       #
@@ -82,9 +81,9 @@ module Silkey
       #
       # @see https://jwt.io/ for details about token payload data
       #
-      # @param [string] JWT token returned by Silkey
+      # @param token [string] JWT token returned by Silkey
       #
-      # @param [string] silkeyPublicKey public ethereum address of Silkey
+      # @param silkey_public_key [string] public ethereum address of Silkey
       #
       # @return [JwtPayload|null] null when signature(s) are invalid, otherwise token payload
       #
@@ -93,7 +92,8 @@ module Silkey
       # @example
       #
       #   Silkey::SDK.token_payload_verifier(
-      #     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+      #     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG'\
+      #     '9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
       #     Silkey::SDK.fetch_silkey_public_key
       #   )
       #
@@ -113,12 +113,6 @@ module Silkey
       ##
       # Fetches public ethereum Silkey address (directly from blockchain).
       # This address can be used for token verification
-      #
-      # @param [string] providerUri ie: 'https://infura.io/v3/:infuraId' register to infura.io to get infuraId
-      #
-      # @param [string] address of silkey smart contract registry
-      #
-      # @return [string] public ethereum address of silkey signer
       #
       # @see List of Silkey contracts addresses: https://github.com/Silkey-Team/silkey-sdk#silkey-sdk
       #

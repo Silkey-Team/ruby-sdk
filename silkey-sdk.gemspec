@@ -12,8 +12,20 @@ Gem::Specification.new do |spec|
   spec.email = ['dariusz@silkey.io']
 
   spec.summary = 'Silkey SDK for Ruby.'
+  spec.description = 'Silkey SDK for Ruby.'
   spec.homepage = 'https://github.com/Silkey-Team/ruby-sdk'
-  spec.license = 'MIT'
+  spec.licenses = ['MIT']
+
+  # spec.files       = ["lib/sdk.rb"]
+
+  # spec.metadata = {
+  #   "bug_tracker_uri"   => "https://github.com/Silkey-Team/ruby-sdk/issues",
+  #   "changelog_uri"     => "https://github.com/Silkey-Team/ruby-sdk/issues/CHANGELOG.md",
+  #   "documentation_uri" => "https://www.example.info/gems/bestgemever/0.0.1",
+  #   "homepage_uri"      => "https://silkey.io",
+  #   "source_code_uri"   => "https://github.com/Silkey-Team/ruby-sdk",
+  #   "wiki_uri"          => "https://example.com/user/bestgemever/wiki"
+  # }
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
