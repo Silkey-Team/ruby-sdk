@@ -43,12 +43,19 @@ RSpec.describe Silkey::SDK, type: :service do
 
   describe 'generate_sso_request_params' do
     it do
-      params = subject.generate_sso_request_params(private_key, { :ssoTimestamp => 1_602_151_787 })
+      params = subject.generate_sso_request_params(
+        private_key,
+        { :ssoTimestamp => 1_602_151_787, :redirectUrl => 'http', :cancelUrl => 'http' }
+      )
+
       expect(params[:ssoTimestamp]).to eq(1_602_151_787)
     end
 
     it 'sets timestamp when not provided' do
-      params = subject.generate_sso_request_params(private_key, {})
+      params = subject.generate_sso_request_params(
+        private_key, { :redirectUrl => 'http', :cancelUrl => 'http' }
+      )
+
       expect(params[:ssoTimestamp]).to be > 1_602_151_787
     end
   end

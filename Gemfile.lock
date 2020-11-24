@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    silkey-sdk (0.0.1)
+    silkey-sdk (0.0.2)
       activesupport (~> 6.0)
       eth (~> 0.4.12)
       ethereum.rb (~> 2.5)
