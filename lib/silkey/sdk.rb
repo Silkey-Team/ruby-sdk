@@ -12,7 +12,7 @@ module Silkey
       #
       # @example:
       #
-      #   Silkey::SDK.message_to_sign({ redirectUrl: 'http://silkey.io', refId: 1 });
+      #   Silkey::SDK.message_to_sign({ :redirectUrl => 'http://silkey.io', :refId => 1 });
       #
       # returns
       #
@@ -38,6 +38,7 @@ module Silkey
       #
       # @param params [Hash] Hash object with parameters:
       #   - redirectUrl*,
+      #   - redirectMethod*,
       #   - cancelUrl*,
       #   - refId,
       #   - scope,
@@ -52,28 +53,34 @@ module Silkey
       #   Silkey::SDK.generate_sso_request_params(private_key, data)
       #
       def generate_sso_request_params(private_key, params)
-        redirect_url = params[:redirectUrl] || ''
-        cancel_url = params[:cancelUrl] || ''
-        sso_timestamp = params[:ssoTimestamp] || Silkey::Utils.current_timestamp
-        ref_id = params[:refId] || ''
-        scope = params[:scope] || ''
+        raise "params[:redirectUrl] is empty" if Silkey::Utils.empty?(params[:redirectUrl])
 
-        message = message_to_sign({
-                                    redirectUrl: redirect_url,
-                                    cancelUrl: cancel_url,
-                                    ssoTimestamp: sso_timestamp,
-                                    refId: ref_id,
-                                    scope: scope
-                                  })
+        raise "params[:cancelUrl] is empty" if Silkey::Utils.empty?(params[:cancelUrl])
 
-        {
-          signature: Silkey::Utils.sign_message(private_key, message),
-          ssoTimestamp: sso_timestamp,
-          redirectUrl: redirect_url,
-          cancelUrl: cancel_url,
-          refId: ref_id,
-          scope: scope
-        }
+        keys = %w(redirectUrl redirectMethod cancelUrl ssoTimestamp refId scope)
+
+        data_to_sign = keys.reduce({}) do |acc, k|
+          if Silkey::Utils.empty?(params[k.to_sym])
+            case k
+            when 'ssoTimestamp'
+              acc[k.to_sym] = Silkey::Utils.current_timestamp
+            when 'scope'
+              acc[k.to_sym] = 'id'
+            else
+              # type code here
+            end
+          else
+            acc[k.to_sym] = params[k.to_sym]
+          end
+
+          acc
+        end
+
+        puts data_to_sign
+        message = message_to_sign(data_to_sign)
+        data_to_sign['signature'] = Silkey::Utils.sign_message(private_key, message)
+
+        data_to_sign
       end
 
       ##
