@@ -7,6 +7,7 @@
 /tmp/
 .idea/
 pkg/
+doc/
 
 *.gem
 # rspec failure tracking
