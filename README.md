@@ -1,8 +1,9 @@
-# Silkey-SDK for Ruby
+![Silkey Logo](https://raw.githubusercontent.com/Silkey-Team/brand/master/silkey-word-black.png)
 
-[logo]
+# Silkey SDK for Ruby
 
-[slogan]
+[![GitHub version](https://badge.fury.io/gh/Silkey-Team%2Fsilkey-sdk.svg)](https://badge.fury.io/gh/Silkey-Team%2Fsilkey-sdk)
+[![Gem Version](https://badge.fury.io/rb/silkey-sdk.svg)](https://badge.fury.io/rb/silkey-sdk)
 
 ## Integration
 
@@ -10,8 +11,11 @@
 
 ```rb
 Silkey::Configuration.setup do |config|
-  config.client_url =  'http://localhost:8545'                # for local development
-  config.client_url =  'https://rinkeby.infura.io/v3/:id'     # for real
+  # for local development, use local provider url eg 'http://localhost:8545'
+  # for testing, we recommend using infura.io:
+  # - for sandbox: https://rinkeby.infura.io/v3/:id 
+  # - for production: https://mainnet.infura.io/v3/:id 
+  config.client_url =  'http://localhost:8545'
   config.registry_contract_address =  '--silky-registry-contract-address--'
   config.enable_logs = false
 end
@@ -32,6 +36,7 @@ end
 | cancelUrl        | yes       | string   | Where to redirect user on error
 | refId            | no        | string   | It will be return with user token, you may use it to identify request
 | scope            | no        | string   | Scope of data to return in a token payload: `id` (default) returns only user address, `email` returns address + email
+
 
 ```rb
 params = { :redirectUrl => 'https://your-website', :refId => '12ab' }
