@@ -159,11 +159,12 @@ RSpec.describe Silkey::Utils do
       expect(subject.verify_message(message, signature)).to eq(public_key)
     end
 
-    it 'signs SDL message in ETH way' do
-      custom_sdk_message = 'cancelUrl=::redirectUrl=::refId=::scope=::ssoTimestamp=1602151787'
+    it 'signs SDK message in ETH way' do
+      custom_sdk_message = 'cancelUrl=&redirectUrl=&refId=&scope=id&ssoTimestamp=1602151787'
       signature = subject.sign_message(private_key, custom_sdk_message)
       # puts signature
       expect(subject.verify_message(custom_sdk_message, signature)).to eq(public_key)
+      expect(subject.verify_message("#{custom_sdk_message}.", signature)).to_not eq(public_key)
     end
   end
 end

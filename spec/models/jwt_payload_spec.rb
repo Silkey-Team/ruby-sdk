@@ -103,7 +103,7 @@ RSpec.describe Silkey::Models::JwtPayload, type: :model do
         expect { subject.validate }.to_not raise_error
       end
 
-      it 'raise error when missing data, scope ID' do
+      it 'raise error when missing data, scope EMAIL' do
         subject.set_scope('email')
         subject.set_address(addr)
         subject.set_user_signature(sig, 1)
@@ -120,15 +120,15 @@ RSpec.describe Silkey::Models::JwtPayload, type: :model do
 
   describe 'import' do
     it 'expect to import data from hash to obejct' do
-      payload = { "scope" => "id",
-                  "silkeySignature" => nil,
-                  "silkeySignatureTimestamp" => nil,
-                  "userSignature" => "0xc9d8287da2304225cf1040a72055cbdec21709b70b30e384d6e4b13422"\
-                                     "ee219178403342828a850dc449782c935ca1bc7033fd89c313202868b293"\
-                                     "9b2d05430f1c",
-                  "userSignatureTimestamp" => 1604688865,
-                  "address" => "0xcfA6bED7B5681CFa3AdF53bF31eB3cd06993cADe",
-                  "iat" => 1604688865 }
+      payload = { 'scope' => 'id',
+                  'silkeySignature' => nil,
+                  'silkeySignatureTimestamp' => nil,
+                  'userSignature' => '0xc9d8287da2304225cf1040a72055cbdec21709b70b30e384d6e4b13422'\
+                                     'ee219178403342828a850dc449782c935ca1bc7033fd89c313202868b293'\
+                                     '9b2d05430f1c',
+                  'userSignatureTimestamp' => 1_604_688_865,
+                  'address' => '0xcfA6bED7B5681CFa3AdF53bF31eB3cd06993cADe',
+                  'iat' => 1_604_688_865 }
 
       imported = subject.import(payload)
 

@@ -68,7 +68,6 @@ module Silkey
         self.silkey_signature_timestamp = timestamp
         self
       end
-
       # rubocop:enable Naming/AccessorMethodName
 
       ##
@@ -78,20 +77,9 @@ module Silkey
           self.user_signature_timestamp = Silkey::Utils.current_timestamp
         end
 
-        str1_hex = 'address'.unpack('H*')[0]
-        adr_hex = Silkey::Utils.remove0x(address).downcase
+        return pack_payload_to_hex if Silkey::Utils.empty?(user_signature_timestamp)
 
-        str2_hex = [
-          'refId', ref_id.to_s,
-          'scope', scope,
-          'userSignatureTimestamp'
-        ].map { |str| str.to_s.unpack('H*') }.join('')
-
-        str_hex = "#{str1_hex}#{adr_hex}#{str2_hex}"
-
-        return str_hex if Silkey::Utils.empty?(user_signature_timestamp)
-
-        "#{str_hex}#{Silkey::Utils.int_to_hex(user_signature_timestamp.to_s)}"
+        "#{pack_payload_to_hex}#{Silkey::Utils.int_to_hex(user_signature_timestamp.to_s)}"
       end
 
       def message_to_sign_by_silkey
@@ -130,7 +118,7 @@ module Silkey
           if k == 'scope'
             set_scope(v)
           else
-            self.instance_variable_set("@#{var}", v)
+            instance_variable_set("@#{var}", v)
           end
         end
 
@@ -138,6 +126,19 @@ module Silkey
       end
 
       private
+
+      def pack_payload_to_hex
+        str1_hex = 'address'.unpack('H*')[0]
+        adr_hex = Silkey::Utils.remove0x(address).downcase
+
+        str2_hex = [
+          'refId', ref_id.to_s,
+          'scope', scope,
+          'userSignatureTimestamp'
+        ].map { |str| str.to_s.unpack('H*') }.join('')
+
+        "#{str1_hex}#{adr_hex}#{str2_hex}"
+      end
 
       def validate_scope_email
         raise 'email is empty' if Silkey::Utils.empty?(email)

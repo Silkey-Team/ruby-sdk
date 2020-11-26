@@ -26,7 +26,7 @@ module Silkey # :nodoc: all
       {
         name: CONTRACT_NAME,
         address: Configuration.registry_contract_address,
-        abi: Configuration.registry_contract_abi,
+        abi: Configuration.registry_contract_abi
       }.freeze
     end
   end
