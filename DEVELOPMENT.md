@@ -1,9 +1,5 @@
 # Silkey-SDK for Ruby
 
-[logo]
-
-[slogan]
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies.  
