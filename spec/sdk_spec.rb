@@ -5,8 +5,8 @@ require 'spec_helper'
 RSpec.describe Silkey::SDK, type: :service do
   subject { described_class }
 
-  addr = "0x#{['1'].cycle(40).to_a.join('')}"
-  sig = "0x#{['2'].cycle(130).to_a.join('')}"
+  # addr = "0x#{['1'].cycle(40).to_a.join('')}"
+  # sig = "0x#{['2'].cycle(130).to_a.join('')}"
 
   private_key = '0x2c06e0037dacc4a831049ce0770f5f6f788827659a5842ed96d34c0631d5f6de'
   public_key = '0xDBF03b99664deb3C73045ac8933A6db89fefFf5F'
@@ -36,16 +36,52 @@ RSpec.describe Silkey::SDK, type: :service do
 'DFlODJjMWJjMzBmYzZkMTNjYzljNDk1Y2ZhNzQ3MjUzNzQ4OTVlMzhiZTdmNSIsInJlY292ZXJ5UGFyYW0iOjEsInYiOjI4f'\
 'SwiaWF0IjoxNjAyMTQ1MzU2fQ.kmmHfO7mGpHsoZoRcAis373rwNDyyzj3rT0-nbiJmN4'
 
-  describe 'message_to_sign' do
+  describe '.message_to_sign' do
     it { expect(subject.message_to_sign({})).to eq('') }
-    it { expect(subject.message_to_sign({ b: '2', a: '1' })).to eq('a=1::b=2') }
+    it { expect(subject.message_to_sign({ b: '2', a: '1' })).to eq('a=1&b=2') }
+    it { expect(subject.message_to_sign({ c: '', d: nil, b: '2', a: '1' })).to eq('a=1&b=2&c=') }
+    it { expect(subject.message_to_sign({ c: '', d: '', b: '2', a: '1' })).to eq('a=1&b=2&c=&d=') }
+
+    describe 'when hashed' do
+      it 'expect to generate same hash' do
+        message1 = subject.message_to_sign({ c: '', d: nil, b: '2', a: '1' })
+        message2 = subject.message_to_sign({ c: '', b: '2', a: '1' })
+
+        hash1 = Eth::Utils.keccak256(message1)
+        hash2 = Eth::Utils.keccak256(message2)
+
+        expect(hash1).to eq(hash2)
+      end
+    end
   end
 
-  describe 'generate_sso_request_params' do
-    it do
+  describe '.generate_sso_request_params' do
+    describe 'raise error when' do
+      it 'PK is empty or invalid' do
+        expect { subject.generate_sso_request_params(nil, nil) }
+          .to raise_error(/`private_key` is empty/)
+
+        expect { subject.generate_sso_request_params('', nil) }
+          .to raise_error(/`private_key` is empty/)
+
+        expect { subject.generate_sso_request_params(0x123, nil) }.to raise_error(NameError)
+      end
+
+      it 'missing required params' do
+        expect { subject.generate_sso_request_params(private_key, nil) }.to raise_error(NameError)
+
+        expect { subject.generate_sso_request_params(private_key, {}) }
+          .to raise_error(/`redirectUrl` is empty/)
+
+        expect { subject.generate_sso_request_params(private_key, { redirectUrl: '1' }) }
+          .to raise_error(/`cancelUrl` is empty/)
+      end
+    end
+
+    it 'expect to use `ssoTimestamp` when not empty' do
       params = subject.generate_sso_request_params(
         private_key,
-        { :ssoTimestamp => 1_602_151_787, :redirectUrl => 'http', :cancelUrl => 'http' }
+        { ssoTimestamp: 1_602_151_787, redirectUrl: 'http', cancelUrl: 'http' }
       )
 
       expect(params[:ssoTimestamp]).to eq(1_602_151_787)
@@ -53,14 +89,30 @@ RSpec.describe Silkey::SDK, type: :service do
 
     it 'sets timestamp when not provided' do
       params = subject.generate_sso_request_params(
-        private_key, { :redirectUrl => 'http', :cancelUrl => 'http' }
+        private_key, { redirectUrl: 'http', cancelUrl: 'http' }
       )
 
       expect(params[:ssoTimestamp]).to be > 1_602_151_787
     end
+
+    it 'expect to generate signature and ignore not set values' do
+      data = { redirectUrl: 'http', cancelUrl: 'http', ssoTimestamp: 1_602_151_787 }
+      message = 'cancelUrl=http&redirectUrl=http&scope=id&ssoTimestamp=1602151787'
+
+      params = subject.generate_sso_request_params(private_key, data)
+      expect(Silkey::Utils.verify_message(message, params[:signature])).to eq(public_key)
+
+      data[:unset] = nil
+      params_unset = subject.generate_sso_request_params(private_key, data)
+      expect(Silkey::Utils.verify_message(message, params_unset[:signature])).to eq(public_key)
+
+      data[:unset] = ''
+      params_set = subject.generate_sso_request_params(private_key, data)
+      expect(Silkey::Utils.verify_message(message, params_set[:signature])).to_not eq(public_key)
+    end
   end
 
-  describe 'token_payload_verifier' do
+  describe '.token_payload_verifier' do
     describe 'without silkey public key' do
       it { expect(subject.token_payload_verifier(valid_scope_id_token)).to be_truthy }
       it { expect(subject.token_payload_verifier(valid_scope_email_token)).to be_truthy }

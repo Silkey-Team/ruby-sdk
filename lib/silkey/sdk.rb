@@ -12,7 +12,7 @@ module Silkey
       #
       # @example:
       #
-      #   Silkey::SDK.message_to_sign({ :redirectUrl => 'http://silkey.io', :refId => 1 });
+      #   Silkey::SDK.message_to_sign({ redirectUrl: 'http://silkey.io', refId: 1 });
       #
       # returns
       #
@@ -20,15 +20,12 @@ module Silkey
       #
       def message_to_sign(to_sign = {})
         msg = []
+
         to_sign.keys.sort.each do |k|
-          if Silkey::Utils.empty?(to_sign[k])
-            msg.push("#{k}=")
-          else
-            msg.push("#{k}=#{to_sign[k]}")
-          end
+          msg.push("#{k}=#{to_sign[k]}") unless to_sign[k].nil?
         end
 
-        msg.join('::')
+        msg.join('&')
       end
 
       ##
@@ -36,51 +33,40 @@ module Silkey
       #
       # @param private_key [string] secret private key of domain owner
       #
-      # @param params [Hash] Hash object with parameters:
+      # @param result [Hash] Hash object with parameters:
       #   - redirectUrl*,
-      #   - redirectMethod*,
       #   - cancelUrl*,
+      #   - redirectMethod,
       #   - refId,
       #   - scope,
-      #   - ssoTimestamp*
+      #   - ssoTimestamp
       #   marked with * are required by Silkey
       #
       # @return [Hash] parameters for SSO as key -> value, they all need to be set in URL
       #
+      # @throws on missing required data
+      #
       # @example
       #
-      #   data = { :redirectUrl => 'https://your-website', :refId => '12ab' }
+      #   data = { redirectUrl: 'https://your-website', refId: '12ab' }
       #   Silkey::SDK.generate_sso_request_params(private_key, data)
       #
-      def generate_sso_request_params(private_key, params)
-        raise "params[:redirectUrl] is empty" if Silkey::Utils.empty?(params[:redirectUrl])
+      def generate_sso_request_params(private_key, data_to_sign)
+        result = data_to_sign.clone
 
-        raise "params[:cancelUrl] is empty" if Silkey::Utils.empty?(params[:cancelUrl])
+        raise '`private_key` is empty' if Silkey::Utils.empty?(private_key)
 
-        keys = %w(redirectUrl redirectMethod cancelUrl ssoTimestamp refId scope)
+        assert_required_soo_params(result)
 
-        data_to_sign = keys.reduce({}) do |acc, k|
-          if Silkey::Utils.empty?(params[k.to_sym])
-            case k
-            when 'ssoTimestamp'
-              acc[k.to_sym] = Silkey::Utils.current_timestamp
-            when 'scope'
-              acc[k.to_sym] = 'id'
-            else
-              # type code here
-            end
-          else
-            acc[k.to_sym] = params[k.to_sym]
-          end
-
-          acc
+        if Silkey::Utils.empty?(result[:ssoTimestamp])
+          result[:ssoTimestamp] = Silkey::Utils.current_timestamp
         end
 
-        puts data_to_sign
-        message = message_to_sign(data_to_sign)
-        data_to_sign['signature'] = Silkey::Utils.sign_message(private_key, message)
+        result[:scope] = 'id' if Silkey::Utils.empty?(result[:scope])
+        message = message_to_sign(result)
+        result[:signature] = Silkey::Utils.sign_message(private_key, message)
 
-        data_to_sign
+        result
       end
 
       ##
@@ -113,7 +99,7 @@ module Silkey
         end
 
         nil
-      rescue
+      rescue # rubocop:disable Style/RescueStandardError
         nil
       end
 
@@ -133,22 +119,41 @@ module Silkey
 
       private
 
+      def assert_required_soo_params(data)
+        raise '`redirectUrl` is empty' if Silkey::Utils.empty?(data[:redirectUrl])
+
+        raise '`cancelUrl` is empty' if Silkey::Utils.empty?(data[:cancelUrl])
+      end
+
       def token_payload(token)
         # Set password to nil and validation to false otherwise this won't work
         decoded = JWT.decode token, nil, false
         decoded[0]
       end
 
-      def user_signature_valid?(payload)
-        jwt_payload = Silkey::Models::JwtPayload.new.import(payload)
-        utils = Silkey::Utils
-
-        if utils.empty?(jwt_payload.address) ||
-           utils.empty?(jwt_payload.user_signature) ||
-           utils.empty?(jwt_payload.user_signature_timestamp)
-          logger.warn('Verification failed, missing user signature/timestamp and/or address')
+      def can_validate_user_signature?(jwt_payload)
+        if Silkey::Utils.empty?(jwt_payload.address)
+          logger.warn('Verification failed, missing user address')
           return false
         end
+
+        if Silkey::Utils.empty?(jwt_payload.user_signature)
+          logger.warn('Verification failed, missing user signature')
+          return false
+        end
+
+        if Silkey::Utils.empty?(jwt_payload.user_signature_timestamp)
+          logger.warn('Verification failed, missing user signature timestamp ')
+          return false
+        end
+
+        true
+      end
+
+      def user_signature_valid?(payload)
+        jwt_payload = Silkey::Models::JwtPayload.new.import(payload)
+
+        return false unless can_validate_user_signature?(jwt_payload)
 
         signer = Silkey::Utils
                  .verify_message(jwt_payload.message_to_sign_by_user, jwt_payload.user_signature)
@@ -165,23 +170,36 @@ module Silkey
         false
       end
 
-      def silkey_signature_valid?(payload, silkey_public_key)
-        jwt_payload = Silkey::Models::JwtPayload.new.import(payload)
-        utils = Silkey::Utils
+      def cant_validate_silky_signature?(jwt_payload)
+        empty_email = Silkey::Utils.empty?(jwt_payload.email)
+        empty_sig = Silkey::Utils.empty?(jwt_payload.silkey_signature)
 
-        if utils.empty?(jwt_payload.email) && utils.empty?(jwt_payload.silkey_signature)
-          return nil
-        end
+        empty_email && empty_sig
+      end
 
-        if utils.empty?(jwt_payload.email) ^ utils.empty?(jwt_payload.silkey_signature)
+      def silkey_sig_check_requirements?(jwt_payload)
+        empty_email = Silkey::Utils.empty?(jwt_payload.email)
+        empty_sig = Silkey::Utils.empty?(jwt_payload.silkey_signature)
+
+        if empty_email ^ empty_sig
           logger.warn('Verification failed, missing silkey signature or email')
           return false
         end
 
-        if utils.empty?(jwt_payload.silkey_signature_timestamp)
+        if Silkey::Utils.empty?(jwt_payload.silkey_signature_timestamp)
           logger.warn('Verification failed, missing silkey signature timestamp')
           return false
         end
+
+        true
+      end
+
+      def silkey_signature_valid?(payload, silkey_public_key)
+        jwt_payload = Silkey::Models::JwtPayload.new.import(payload)
+
+        return nil if cant_validate_silky_signature?(jwt_payload)
+
+        return false unless silkey_sig_check_requirements?(jwt_payload)
 
         signer = Silkey::Utils.verify_message(
           jwt_payload.message_to_sign_by_silkey, jwt_payload.silkey_signature

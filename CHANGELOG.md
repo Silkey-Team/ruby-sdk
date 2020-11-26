@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.0.4] - 2020-11-26
+### Added
+- `generate_sso_request_params` throws on empty PK
+
+### Changed
+- join operator for `message_to_sign` is now `&`
+- `message_to_sign` ignores data that are not set
+
+### Fixed
+- ensure testing `throws` is working correctly
+- rubocop offences
+
 ## [0.0.3] - 2020-11-25
 ### Added
 - Logo and badges to README

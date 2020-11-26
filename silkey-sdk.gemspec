@@ -16,15 +16,15 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/Silkey-Team/ruby-sdk'
   spec.licenses = ['MIT']
 
-  # spec.files       = ["lib/sdk.rb"]
+  # spec.files       = ['lib/sdk.rb']
 
   spec.metadata = {
-    "bug_tracker_uri" => "https://github.com/Silkey-Team/ruby-sdk/issues",
-    "changelog_uri" => "https://github.com/Silkey-Team/ruby-sdk/blob/master/CHANGELOG.md",
-    "documentation_uri" => "https://www.rubydoc.info/gems/silkey-sdk/" + Silkey::VERSION,
-    "homepage_uri" => "https://silkey.io",
-    "source_code_uri" => "https://github.com/Silkey-Team/ruby-sdk",
-    # "wiki_uri"          => "https://example.com/user/bestgemever/wiki"
+    'bug_tracker_uri' => 'https://github.com/Silkey-Team/ruby-sdk/issues',
+    'changelog_uri' => 'https://github.com/Silkey-Team/ruby-sdk/blob/master/CHANGELOG.md',
+    'documentation_uri' => "https://www.rubydoc.info/gems/silkey-sdk/#{Silkey::VERSION}",
+    'homepage_uri' => 'https://silkey.io',
+    'source_code_uri' => 'https://github.com/Silkey-Team/ruby-sdk'
+    # 'wiki_uri'          => 'https://example.com/user/bestgemever/wiki'
   }
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -44,18 +44,18 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
   spec.add_dependency 'activesupport', '~> 6.0'
-  spec.add_dependency 'jwt', '~> 2.2.2'
   spec.add_dependency 'eth', '~> 0.4.12'
   spec.add_dependency 'ethereum.rb', '~> 2.5'
+  spec.add_dependency 'jwt', '~> 2.2.2'
   spec.add_dependency 'virtus', '~> 1.0'
   spec.add_dependency 'virtus_convert', '~> 0.1'
-  spec.add_development_dependency 'rdoc', '~> 6.2', '>= 6.2.1'
-  spec.add_development_dependency 'yard', '~> 0.9.25'
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'factory_bot', '~> 6.1'
   spec.add_development_dependency 'pry', '~> 0.13'
   spec.add_development_dependency 'rake', '~> 13.0'
+  spec.add_development_dependency 'rdoc', '~> 6.2', '>= 6.2.1'
   spec.add_development_dependency 'rspec', '~> 3.10'
   spec.add_development_dependency 'rubocop', '~> 1.3'
   spec.add_development_dependency 'rubocop-performance', '~> 1.8'
+  spec.add_development_dependency 'yard', '~> 0.9.25'
 end

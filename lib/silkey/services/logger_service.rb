@@ -7,7 +7,7 @@ module Silkey # :nodoc: all
 
       def logger
         if @logger.nil?
-          @logger = Logger.new(STDOUT)
+          @logger = Logger.new($stdout)
           @logger.level = Logger::INFO
           @logger.datetime_format = '%a %d-%m-%Y %H%M '
         end
