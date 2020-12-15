@@ -119,10 +119,10 @@ module Silkey
 
       private
 
-      def assert_required_soo_params(data)
-        raise '`redirectUrl` is empty' if Silkey::Utils.empty?(data[:redirectUrl])
+      def assert_required_soo_params(params)
+        raise '`redirectUrl` is empty' if Silkey::Utils.empty?(params[:redirectUrl])
 
-        raise '`cancelUrl` is empty' if Silkey::Utils.empty?(data[:cancelUrl])
+        raise '`cancelUrl` is empty' if Silkey::Utils.empty?(params[:cancelUrl])
       end
 
       def token_payload(token)

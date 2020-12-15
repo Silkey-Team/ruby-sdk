@@ -121,6 +121,7 @@ RSpec.describe Silkey::Utils do
   end
 
   describe 'int_to_hex - must be align with NodeJS SDK' do
+    it { expect(subject.int_to_hex(0)).to eq('00') }
     it { expect(subject.int_to_hex(1)).to eq('01') }
     it { expect(subject.int_to_hex(16)).to eq('10') }
     it { expect(subject.int_to_hex(31)).to eq('1f') }
