@@ -69,7 +69,7 @@ module Silkey
 
       def sign_message(private_key, message)
         wallet = Eth::Key.new priv: Silkey::Utils.remove0x(private_key)
-        wallet.personal_sign(message)
+        Silkey::Utils.add0x(wallet.personal_sign(message))
       end
 
       def sign_plain_message(private_key, message)
