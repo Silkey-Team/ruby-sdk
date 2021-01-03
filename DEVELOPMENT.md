@@ -47,6 +47,7 @@ Silkey::RegistryContract.get_address('Name')
 ```bash
 bundle exec rspec
 bundle exec rubocop --fix
+bundle exec rubocop --auto-correct-all
 ```
 
 #### Init setup environment

@@ -2,28 +2,36 @@
 
 module Silkey
   module Models
+    ##
+    # Generates message to sign based on plain object data (keys => values)
+    #
+    # @param email [string] verified email of the user
+    #   IMPORTANT: if email in user profile is different, you should always update it with this one.
+    #
+    # @param scope [string]
+    # @param address [string] ID of the user, this is also valid ethereum address, use this to identify user
+    # @param userSignature [string] proof that request came from the user
+    # @param userSignatureTimestamp [number] time when signature was crated
+    # @param silkeySignature [string] proof that Silkey verified the email
+    # @param silkeySignatureTimestamp [number] time when signature was crated
+    # @param migration [boolean] true if user started migration to Silkey
+    #
     class JwtPayload
       include Virtus.model
 
-      SCOPE_DIVIDER = ','
-
       # rubocop:disable Style/HashSyntax
-      attribute :address, String, :writer => :private
       attribute :email, String, :writer => :private
-      attribute :silkey_signature, String, :writer => :private
-      attribute :silkey_signature_timestamp, Integer
-      attribute :user_signature, String, :writer => :private
-      attribute :user_signature_timestamp, Integer
-      attribute :ref_id, String, :writer => :private
       attribute :_scope, {}, :writer => :private, :reader => :private
+      attribute :address, String, :writer => :private
+      attribute :silkey_signature, String, :writer => :private
+      attribute :silkey_signature_timestamp, Integer, :default => 0
+      attribute :user_signature, String, :writer => :private
+      attribute :user_signature_timestamp, Integer, :default => 0
+      attribute :migration, Boolean, :writer => :private, :default => false
       # rubocop:enable Style/HashSyntax
 
       def scope
-        _scope.keys.sort.join(SCOPE_DIVIDER)
-      end
-
-      def scope_divider
-        SCOPE_DIVIDER
+        _scope.keys.sort.join(Silkey::Settings.SCOPE_DIVIDER)
       end
 
       # rubocop:disable Naming/AccessorMethodName
@@ -46,8 +54,8 @@ module Silkey
         self
       end
 
-      def set_ref_id(ref_id)
-        self.ref_id = ref_id
+      def set_migrations(migrating)
+        self.migration = migrating
         self
       end
 
@@ -70,17 +78,22 @@ module Silkey
       end
       # rubocop:enable Naming/AccessorMethodName
 
+      # rubocop:disable Metrics/AbcSize
+      #
       ##
       #  Creates message that's need to be sign by user
       def message_to_sign_by_user
-        if !Silkey::Utils.empty?(address) && Silkey::Utils.empty?(user_signature_timestamp)
-          self.user_signature_timestamp = Silkey::Utils.current_timestamp
-        end
+        data = {
+          address: Silkey::Utils.strings_to_hex(['address']) + Silkey::Utils.remove0x(address).downcase,
+          migration: Silkey::Utils.strings_to_hex(['migration']) + (migration ? '01' : '00'),
+          scope: Silkey::Utils.strings_to_hex(['scope', scope]),
+          userSignatureTimestamp: Silkey::Utils.strings_to_hex(['userSignatureTimestamp']) +
+                                  Silkey::Utils.int_to_hex(user_signature_timestamp)
+        }
 
-        return pack_payload_to_hex if Silkey::Utils.empty?(user_signature_timestamp)
-
-        "#{pack_payload_to_hex}#{Silkey::Utils.int_to_hex(user_signature_timestamp.to_s)}"
+        data.keys.sort.map { |k| data[k] }.join('')
       end
+      # rubocop:enable Metrics/AbcSize
 
       def message_to_sign_by_silkey
         return '' if Silkey::Utils.empty?(email)
@@ -89,33 +102,28 @@ module Silkey
           self.silkey_signature_timestamp = Silkey::Utils.current_timestamp
         end
 
-        str_hex = [
-          'email', email,
-          'silkeySignatureTimestamp'
-        ].map { |str| str.to_s.unpack('H*') }.join('')
-
-        "#{str_hex}#{Silkey::Utils.int_to_hex(silkey_signature_timestamp.to_s)}"
+        "#{email.to_s.unpack('H*')[0]}#{Silkey::Utils.int_to_hex(silkey_signature_timestamp)}"
       end
 
       def validate
         raise "address is invalid: #{address}" unless Silkey::Utils.ethereum_address?(address)
 
-        unless Silkey::Utils.signature?(user_signature)
-          raise "user_signature is invalid: #{user_signature}"
-        end
+        raise "user_signature is invalid: #{user_signature}" unless Silkey::Utils.signature?(user_signature)
 
-        raise 'user_signature_timestamp is empty' if Silkey::Utils.empty?(user_signature_timestamp)
+        raise 'user_signature_timestamp is invalid' unless Silkey::Utils.timestamp?(user_signature_timestamp)
 
         return self if Silkey::Utils.empty?(scope) || scope == 'id'
 
         validate_scope_email
       end
 
-      def import(hash)
-        hash.each do |k, v|
+      def import(data = {})
+        return data if data.is_a?(Silkey::Models::JwtPayload)
+
+        data.each do |k, v|
           var = k.to_s.underscore
 
-          if k == 'scope'
+          if var == 'scope'
             set_scope(v)
           else
             instance_variable_set("@#{var}", v)
@@ -132,7 +140,6 @@ module Silkey
         adr_hex = Silkey::Utils.remove0x(address).downcase
 
         str2_hex = [
-          'refId', ref_id.to_s,
           'scope', scope,
           'userSignatureTimestamp'
         ].map { |str| str.to_s.unpack('H*') }.join('')
@@ -143,13 +150,9 @@ module Silkey
       def validate_scope_email
         raise 'email is empty' if Silkey::Utils.empty?(email)
 
-        unless Silkey::Utils.signature?(silkey_signature)
-          raise "silkey_signature is invalid: #{silkey_signature}"
-        end
+        raise "silkey_signature is invalid: #{silkey_signature}" unless Silkey::Utils.signature?(silkey_signature)
 
-        if Silkey::Utils.empty?(silkey_signature_timestamp)
-          raise 'silkey_signature_timestamp is empty'
-        end
+        raise 'silkey_signature_timestamp is invalid' unless Silkey::Utils.timestamp?(silkey_signature_timestamp)
 
         self
       end

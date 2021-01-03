@@ -5,8 +5,9 @@ require 'spec_helper'
 RSpec.describe Silkey::Utils do
   subject { Silkey::Utils }
 
-  private_key = '0x2c06e0037dacc4a831049ce0770f5f6f788827659a5842ed96d34c0631d5f6de'
-  public_key = '0xDBF03b99664deb3C73045ac8933A6db89fefFf5F'
+  let(:private_key) { build(:example).private_key }
+  let(:public_key) { build(:example).public_key }
+  let(:web_public_key) { build(:example).web_public_key }
 
   describe 'empty?' do
     it 'returns true' do
@@ -149,10 +150,10 @@ RSpec.describe Silkey::Utils do
       expect(subject.verify_plain_message(message, signature)).to eq(public_key)
     end
 
-    it 'expect to verify signature that came from silkey' do
-      signature_from_nodejs = '0x79dff71e50e62de7c76314f08014229694e50c31dc099a1c86d60f6c7de1f7b'\
-                              '663b086b36e3168b676f6bd56f3ac4402748a37328cf04917b61fad9f9f016ff11b'
-      expect(subject.verify_message(message, signature_from_nodejs)).to eq(public_key)
+    it 'expect to verify signature that came from Silkey' do
+      signature_from_nodejs = '0x968b82bcd9f683b09f6ff54110a319a39681451f502e96f98026a85535358acd'\
+      '212c090d813770d87dd09c2badcd8ebc36ac72fb2e2387d5b0652a8cce6808661b'
+      expect(subject.verify_message(message, signature_from_nodejs)).to eq(web_public_key)
     end
 
     it 'sign/verify message in ETH way' do
