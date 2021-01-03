@@ -53,6 +53,12 @@ module Silkey
         Time.now.getutc.to_i
       end
 
+      def timestamp?(tmstp)
+        return false if tmstp.nil?
+
+        tmstp.positive? && tmstp.to_s(10).length == 10
+      end
+
       def int_to_hex(int)
         return '' if empty?(int)
 

@@ -27,30 +27,42 @@ end
 
 #### Making request
 
-| Parameter        | Required  | Type     | Desc 
-| ---------------- |:---------:| -------- | ----- 
-| signature        | yes       | string   | Domain owner signature
-| ssoTimestamp     | yes       | number   | Time of signing SSO request
-| redirectUrl      | yes       | string   | Where to redirect user with token after sign in
-| cancelUrl        | yes       | string   | Where to redirect user on error
-| redirectMethod   | no        | GET/POST | How to redirect user after sign in, default is POST
-| refId            | no        | string   | It will be return with user token, you may use it to identify request
-| scope            | no        | string   | Scope of data to return in a token payload: `id` (default) returns only user address, `email` returns address + email
+| Parameter         | Required  | Type     | Desc 
+| ----------------- |:---------:| -------- | ----- 
+| ssoSignature      | yes       | string   | Domain owner signature
+| ssoTimestamp      | yes       | number   | Time of signing SSO request
+| ssoRedirectUrl    | yes       | string   | Where to redirect user with token after sign in
+| ssoCancelUrl      | yes       | string   | Where to redirect user on error
+| ssoRedirectMethod | no        | GET/POST | How to redirect user after sign in, default is POST
+| ssoRefId          | no        | string   | Any value, you may use it to identify request
+| ssoScope          | no        | string   | Scope of data to return in a token payload: `id` (default) returns only user address, `email` returns address + email
 
 
 ```rb
-params = { redirectUrl: 'https://your-website', refId: '12ab' }
+params = { ssoRedirectUrl: 'https://your-website', ssoRefId: '12ab' }
 sso_params = Silkey::SDK.generate_sso_request_params(private_key, params)
 ```
 
 #### On request callback page
 
-`token` - get if from request params (it can be send via POST or GET, based on `redirectMethod`) 
+Callback will be done via POST (default) or GET, based on `ssoRedirectMethod`.
+
+Callback params contains:
+- sso parameters that were used to make SSO call
+- `token`.
+
+`token` - get if from request params
+
+`ssoRequestParams` - get if from request params (it can be send via POST or GET, based on `ssoRedirectMethod`)
 
 ```rb
-silkey_public_key = Silkey::SDK.fetch_silkey_public_key
-Silkey::SDK.token_payload_verifier(token, silkey_public_key)
+silkey_eth_address = Silkey::SDK.fetch_silkey_eth_address
+Silkey::SDK.token_payload_verifier(token, silkey_eth_address)
 ```
+
+## Recommendations and Migration
+
+See [recommendation and migration](https://github.com/Silkey-Team/silkey-sdk#recommendations) sections on main SDK package.
 
 ## License
 
